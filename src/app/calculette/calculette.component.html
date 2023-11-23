@@ -16,5 +16,9 @@
   <p>Resultat</p>
   <p>{{ resultat }}</p>
 
-<app-compteur-de-calcul #compteur></app-compteur-de-calcul>
+
+@if (flagTropDeCalcul) {
+<b>Trop de calculs effectués !</b>
+}
+<app-compteur-de-calcul #compteur (attentionNombreDecalculImportant)="tropDeCalcul($event)"></app-compteur-de-calcul>
 

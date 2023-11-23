@@ -14,6 +14,9 @@ export class CalculetteComponent {
 
   @ViewChild('compteur') compteur!: CompteurDeCalculComponent;
 
+
+  public flagTropDeCalcul: boolean = false;
+
   public calculatrice: FormGroup;
 
   public resultat: number = 0;
@@ -51,4 +54,10 @@ export class CalculetteComponent {
   }
 
   public total: number = 0;
+
+  tropDeCalcul($event: boolean) {
+    if ($event == true) {
+      this.flagTropDeCalcul = true;
+    }
+  }
 }

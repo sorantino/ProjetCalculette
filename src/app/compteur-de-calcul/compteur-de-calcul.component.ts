@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,12 +9,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './compteur-de-calcul.component.css'
 })
 export class CompteurDeCalculComponent {
+  @Output() attentionNombreDecalculImportant: EventEmitter<boolean> = new EventEmitter();
   public total: number =0;
 
 
   calcul() :void {
     this.total++;
+
+    if (this.total > 10) {
+      console.log('attentionNombreDecalculImportant');
+      this.attentionNombreDecalculImportant.emit(true);
+    }
   }
+
+
 
 
 }
