@@ -9,8 +9,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './compteur-de-calcul.component.css'
 })
 export class CompteurDeCalculComponent {
-  @Input() test: number = 0;
+  public total: number =0;
 
+
+  calcul() :void {
+    this.total++;
+  }
 
 
 }

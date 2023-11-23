@@ -40,7 +40,8 @@ export class CalculetteComponent {
 
   calcul(): void {
 
-    this.total++;
+    this.compteur.calcul();
+
     this.resultat = eval(
       'parseFloat(this.operande1.value) ' +
       this.operateur.value +
