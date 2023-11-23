@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {CompteurDeCalculComponent} from "../compteur-de-calcul/compteur-de-calcul.component";
 
 @Component({
   selector: 'app-calculette',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, CompteurDeCalculComponent],
   templateUrl: './calculette.component.html',
   styleUrl: './calculette.component.css'
 })
 export class CalculetteComponent {
+
+  @ViewChild('compteur') compteur!: CompteurDeCalculComponent;
 
   public calculatrice: FormGroup;
 
@@ -37,6 +40,7 @@ export class CalculetteComponent {
 
   calcul(): void {
 
+    this.total++;
     this.resultat = eval(
       'parseFloat(this.operande1.value) ' +
       this.operateur.value +
@@ -44,4 +48,6 @@ export class CalculetteComponent {
     );
 
   }
+
+  public total: number = 0;
 }
